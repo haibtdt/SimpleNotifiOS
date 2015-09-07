@@ -14,6 +14,7 @@ public class SNNotificationManager : NSObject {
     public var notificationTypes = UIUserNotificationType(rawValue: UIUserNotificationType.Alert.rawValue | UIUserNotificationType.Sound.rawValue | UIUserNotificationType.Badge.rawValue)
     var permissionsAvailableHandler : ((notificationSettings : UIUserNotificationSettings) -> Void)? = nil
     var apnsRegistrationResultAvailableHandler : ((deviceToken : NSData?, error : NSError?) -> Void)? = nil
+    public var remoteNotificationArrivalHandler : ((userInfo: [NSObject : AnyObject]) -> Void)? = nil
     
     public func askForUserPermissions (permissionsAvailableHandler : ((notificationSettings : UIUserNotificationSettings) -> Void)?) -> Void {
         
@@ -54,5 +55,11 @@ public class SNNotificationManager : NSObject {
         
     }
 
+    
+    public func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        remoteNotificationArrivalHandler?(userInfo: userInfo)
+        
+    }
     
 }

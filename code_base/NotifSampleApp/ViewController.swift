@@ -24,6 +24,11 @@ class ViewController: UIViewController {
         if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
             
             let notifManager = appDelegate.notifManager
+            notifManager.remoteNotificationArrivalHandler = { userInfo in
+            
+                print(userInfo)
+                
+            }
             notifManager.registerAPNS({ (deviceToken, error) -> Void in
                 
                 
