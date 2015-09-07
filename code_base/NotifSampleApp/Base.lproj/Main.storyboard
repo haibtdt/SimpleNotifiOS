@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15A263e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -36,16 +37,36 @@
                                     <action selector="registerRemoteNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v6H-Yf-wb9"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cd3-dF-qUy">
+                                <rect key="frame" x="16" y="209" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APNS device token" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTq-cr-6e3">
+                                <rect key="frame" x="16" y="180" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="SQ6-ev-qfl" secondAttribute="centerX" id="99S-vs-ovQ"/>
                             <constraint firstAttribute="centerY" secondItem="5Ny-hY-TPG" secondAttribute="centerY" id="Gd5-Kg-3IE"/>
+                            <constraint firstItem="cd3-dF-qUy" firstAttribute="centerX" secondItem="SQ6-ev-qfl" secondAttribute="centerX" id="XTT-Tz-1NR"/>
+                            <constraint firstItem="cd3-dF-qUy" firstAttribute="top" secondItem="ZTq-cr-6e3" secondAttribute="bottom" constant="8" id="hhu-PO-uWA"/>
+                            <constraint firstItem="SQ6-ev-qfl" firstAttribute="top" secondItem="cd3-dF-qUy" secondAttribute="bottom" constant="8" id="kOJ-bZ-Jad"/>
+                            <constraint firstItem="cd3-dF-qUy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="nfF-rP-TXe"/>
                             <constraint firstAttribute="centerX" secondItem="5Ny-hY-TPG" secondAttribute="centerX" id="r8n-Mk-3u7"/>
+                            <constraint firstItem="ZTq-cr-6e3" firstAttribute="leading" secondItem="cd3-dF-qUy" secondAttribute="leading" id="uEc-Vq-tZ1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cd3-dF-qUy" secondAttribute="trailing" id="vFc-3p-FIn"/>
                             <constraint firstItem="5Ny-hY-TPG" firstAttribute="top" secondItem="SQ6-ev-qfl" secondAttribute="bottom" constant="8" id="x0D-Yt-QU6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tfDeviceToken" destination="cd3-dF-qUy" id="cio-TN-Jb8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

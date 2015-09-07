@@ -11,6 +11,7 @@ import SimpleNotifiOS
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var tfDeviceToken: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class ViewController: UIViewController {
             }
             notifManager.registerAPNS({ (deviceToken, error) -> Void in
                 
-                
+                self.tfDeviceToken.text = deviceToken?.description
                 
             })
             
