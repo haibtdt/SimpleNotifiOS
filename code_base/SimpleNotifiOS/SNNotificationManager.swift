@@ -13,6 +13,7 @@ public class SNNotificationManager : NSObject {
     
     public var notificationTypes = UIUserNotificationType(rawValue: UIUserNotificationType.Alert.rawValue | UIUserNotificationType.Sound.rawValue | UIUserNotificationType.Badge.rawValue)
     var permissionsAvailableHandler : ((notificationSettings : UIUserNotificationSettings) -> Void)? = nil
+    var apnsRegistrationResultAvailableHandler : ((deviceToken : NSData?, error : NSError?) -> Void)? = nil
     
     public func askForUserPermissions (permissionsAvailableHandler : ((notificationSettings : UIUserNotificationSettings) -> Void)?) -> Void {
         
@@ -23,11 +24,14 @@ public class SNNotificationManager : NSObject {
         
     }
     
-    public func registerAPNS () -> Void {
+    public func registerAPNS (apnsRegistrationResultAvailableHandler : ((deviceToken : NSData?, error : NSError?) -> Void)) -> Void {
 
-
-    }
+        self.apnsRegistrationResultAvailableHandler = apnsRegistrationResultAvailableHandler
+        UIApplication.sharedApplication().registerForRemoteNotifications()
         
+        
+    }
+    
 
     public func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         
@@ -38,7 +42,7 @@ public class SNNotificationManager : NSObject {
     
     public func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
-        
+        apnsRegistrationResultAvailableHandler?(deviceToken: deviceToken, error: nil)
         
     }
     
@@ -46,7 +50,7 @@ public class SNNotificationManager : NSObject {
     public func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         
         
-        
+        apnsRegistrationResultAvailableHandler?(deviceToken: nil, error: error)
         
     }
 

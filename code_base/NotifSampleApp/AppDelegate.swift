@@ -48,6 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notifManager.application(application, didRegisterUserNotificationSettings: notificationSettings)
         
     }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        notifManager.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+        
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        
+        
+        notifManager.application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+        
+        
+    }
 
 
 }

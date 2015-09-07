@@ -26,12 +26,24 @@
                                     <action selector="askForPermission:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bah-El-OiQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQ6-ev-qfl">
+                                <rect key="frame" x="206" y="247" width="189" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Register remote notification">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerRemoteNotification:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v6H-Yf-wb9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="SQ6-ev-qfl" secondAttribute="centerX" id="99S-vs-ovQ"/>
                             <constraint firstAttribute="centerY" secondItem="5Ny-hY-TPG" secondAttribute="centerY" id="Gd5-Kg-3IE"/>
                             <constraint firstAttribute="centerX" secondItem="5Ny-hY-TPG" secondAttribute="centerX" id="r8n-Mk-3u7"/>
+                            <constraint firstItem="5Ny-hY-TPG" firstAttribute="top" secondItem="SQ6-ev-qfl" secondAttribute="bottom" constant="8" id="x0D-Yt-QU6"/>
                         </constraints>
                     </view>
                 </viewController>

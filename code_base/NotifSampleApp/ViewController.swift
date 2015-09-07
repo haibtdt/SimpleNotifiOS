@@ -19,6 +19,22 @@ class ViewController: UIViewController {
         
     }
 
+    @IBAction func registerRemoteNotification(sender: AnyObject) {
+        
+        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+            
+            let notifManager = appDelegate.notifManager
+            notifManager.registerAPNS({ (deviceToken, error) -> Void in
+                
+                
+                
+            })
+            
+            
+        }
+
+        
+    }
 
     @IBAction func askForPermission(sender: AnyObject) {
         
