@@ -22,14 +22,8 @@ class ViewController: UIViewController {
 
     @IBAction func registerRemoteNotification(sender: AnyObject) {
         
-        if let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate {
+        if let notifManager = (UIApplication.sharedApplication().delegate as? AppDelegate)?.notifManager {
             
-            let notifManager = appDelegate.notifManager
-            notifManager.remoteNotificationArrivalHandler = { userInfo in
-            
-                print(userInfo)
-                
-            }
             notifManager.registerAPNS({ (deviceToken, error) -> Void in
                 
                 self.tfDeviceToken.text = deviceToken?.description

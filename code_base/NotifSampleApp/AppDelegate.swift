@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        notifManager.remoteNotificationArrivalHandler = { userInfo in
+            
+            let alert = UIAlertView(title: "Remote content", message: userInfo.description, delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+
+        }
+        notifManager.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
 

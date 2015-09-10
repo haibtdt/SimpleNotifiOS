@@ -62,4 +62,32 @@ public class SNNotificationManager : NSObject {
         
     }
     
+    public func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+
+        //extract remote
+        if let remoteNotificationPayload = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? [String : AnyObject] {
+            
+            remoteNotificationArrivalHandler?(userInfo: remoteNotificationPayload)
+            
+            
+            
+        }
+
+        //extract local
+        if let localNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? UILocalNotification {
+            
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        return true
+    }
+
+    
 }
