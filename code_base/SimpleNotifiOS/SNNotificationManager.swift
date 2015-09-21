@@ -74,7 +74,7 @@ public class SNNotificationManager : NSObject {
         }
 
         //extract local
-        if let localNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? UILocalNotification {
+        if let _ = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? UILocalNotification {
             
             
             

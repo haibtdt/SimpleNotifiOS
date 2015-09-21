@@ -301,6 +301,7 @@
 		46E0B6211B9D89B200DC3D7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = vn.haibui;
 				TargetAttributes = {
