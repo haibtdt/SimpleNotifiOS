@@ -33,7 +33,7 @@ public class SNNotificationManager : NSObject {
         
     }
     
-    func askThenRegisterAPNS (apnsRegistrationResultAvailableHandler : ((deviceToken : NSData?, error : NSError?) -> Void)) -> Void {
+    public func askThenRegisterAPNS (apnsRegistrationResultAvailableHandler : ((deviceToken : NSData?, error : NSError?) -> Void)) -> Void {
         
         askForUserPermissions({ (notificationSettings : UIUserNotificationSettings) -> Void in
             
