@@ -33,6 +33,28 @@ public class SNNotificationManager : NSObject {
         
     }
     
+    func askThenRegisterAPNS (apnsRegistrationResultAvailableHandler : ((deviceToken : NSData?, error : NSError?) -> Void)) -> Void {
+        
+        askForUserPermissions({ (notificationSettings : UIUserNotificationSettings) -> Void in
+            
+            if notificationSettings.types != .None {
+                
+                
+                self.registerAPNS(apnsRegistrationResultAvailableHandler)
+                
+                
+            } else {
+                
+                let err = NSError(domain: "APNS", code: 0, userInfo: [NSLocalizedDescriptionKey:"NOT_PERMITTED"])
+                apnsRegistrationResultAvailableHandler(deviceToken: nil, error: err)
+                
+            }
+            
+        })
+
+        
+    }
+    
 
     public func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         
